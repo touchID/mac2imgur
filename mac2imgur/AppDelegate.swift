@@ -28,16 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: NSApplicationDelegate
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-                
-        // Register initial defaults
-        var initialDefaults = ["NSApplicationCrashOnExceptions": true]
-        
-        Preference.allValues.forEach {
-            initialDefaults[$0.rawValue] = $0.defaultValue
-        }
-        
-        UserDefaults.standard.register(defaults: initialDefaults)
-                
+                        
         // Setup ImgurClient
         ImgurClient.shared.setup()
         

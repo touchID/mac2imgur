@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		021EABDB1D2878C200EFE6C8 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021EABDA1D2878C200EFE6C8 /* Preferences.swift */; };
 		022D73A31D2FA46700408B2B /* ImgurClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D73A21D2FA46700408B2B /* ImgurClient.swift */; };
 		022D73AD1D3002C200408B2B /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D73AC1D3002C200408B2B /* StatusItemController.swift */; };
 		022D73B21D30416800408B2B /* UserNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D73B11D30416800408B2B /* UserNotificationController.swift */; };
@@ -25,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		021EABDA1D2878C200EFE6C8 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		022D73A21D2FA46700408B2B /* ImgurClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurClient.swift; sourceTree = "<group>"; };
 		022D73AC1D3002C200408B2B /* StatusItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		022D73B11D30416800408B2B /* UserNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationController.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 				0267FE461D1DB6E9003F601D /* AppDelegate.swift */,
 				02659D271D2728E6005DAB74 /* ScreenshotMonitor.swift */,
 				022D73B11D30416800408B2B /* UserNotificationController.swift */,
-				021EABDA1D2878C200EFE6C8 /* Preferences.swift */,
 			);
 			path = mac2imgur;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 			files = (
 				02659D2C1D284F24005DAB74 /* StatusItemMenuController.swift in Sources */,
 				022D73B21D30416800408B2B /* UserNotificationController.swift in Sources */,
-				021EABDB1D2878C200EFE6C8 /* Preferences.swift in Sources */,
 				02659D2F1D285986005DAB74 /* NSMenuExtension.swift in Sources */,
 				02F440B31D293F1A004AD4E9 /* MenuController.swift in Sources */,
 				022D73A31D2FA46700408B2B /* ImgurClient.swift in Sources */,

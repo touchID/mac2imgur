@@ -30,9 +30,6 @@ class StatusItemMenuController: MenuController {
 //        menu.addItem(.separator())
 //        menu.addItem(withTitle: uploadsMenuController.menuTitle,
 //                     submenu: self.uploadsMenuController.menu)
-//        menu.addItem(.separator())
-//        menu.addItem(withTitle: preferencesMenuController.menuTitle,
-//                     submenu: self.preferencesMenuController.menu)
 //        menu.addItem(withTitle: imgurMenuController.menuTitle,
 //                     submenu: self.imgurMenuController.menu)
 //        menu.addItem(.separator())

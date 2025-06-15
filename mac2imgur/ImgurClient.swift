@@ -15,9 +15,8 @@
  */
 
 import Foundation
-import ImgurSession
 
-class ImgurClient: NSObject, IMGSessionDelegate {
+class ImgurClient: NSObject {
     
     static let shared = ImgurClient()
     
@@ -49,8 +48,8 @@ class ImgurClient: NSObject, IMGSessionDelegate {
         if let refreshToken = UserDefaults.standard.string(forKey: refreshTokenKey) {
             configure(asAnonymous: false)
             
-            IMGSession.sharedInstance()
-                .authenticate(withRefreshToken: refreshToken)
+//            IMGSession.sharedInstance()
+//                .authenticate(withRefreshToken: refreshToken)
         } else {
             configure(asAnonymous: true)
         }
@@ -93,25 +92,10 @@ class ImgurClient: NSObject, IMGSessionDelegate {
     /// - parameter anonymous: If the session should be configured for anonymous
     /// API access, or alternatively authenticated.
     func configure(asAnonymous anonymous: Bool) {
-        if anonymous {
-            IMGSession.anonymousSession(
-                withClientID: clientID,
-                with: self)
-        } else {
-            IMGSession.authenticatedSession(
-                withClientID: clientID,
-                secret: clientSecret,
-                authType: .codeAuth,
-                with: self)
-            
-            // Disable notification update requests
-            IMGSession.sharedInstance().notificationRefreshPeriod = 0
-        }
     }
     
     func authenticate() {
         configure(asAnonymous: false)
-        IMGSession.sharedInstance().authenticate()
     }
     
     func deauthenticate() {
@@ -122,71 +106,10 @@ class ImgurClient: NSObject, IMGSessionDelegate {
         configure(asAnonymous: true)
     }
     
-    /// Requests manual upload confirmation from the user if required,
-    /// otherwise returns `true`
-    /// - parameter upload: The upload for which confirmation is required
-    func hasUploadConfirmation(forImageNamed imageName: String, imageData: Data) -> Bool {
-        // Manual upload confirmation may not be required
-        if !Preference.requiresUploadConfirmation.value {
-            return true
-        }
-        
-        let alert = NSAlert()
-        alert.messageText = "Do you want to upload this screenshot?"
-        alert.informativeText = "\"\(imageName)\" will be uploaded to imgur.com, where it will be publicly accessible."
-        alert.addButton(withTitle: "Upload")
-        alert.addButton(withTitle: "Cancel")
-        alert.icon = NSImage(data: imageData)
-        
-        NSApp.activate(ignoringOtherApps: true)
-        return alert.runModal() == NSApplication.ModalResponse.alertFirstButtonReturn
-    }
-    
     /// Returns a PNG image representation data of the supplied image data,
     /// reduced to non-retina scale
     func downscaleRetinaImageData(_ data: Data) -> Data? {
-        guard let image = NSImage(data: data) else {
-            NSLog("Resize failed: Unable to create image from image data")
-            return nil
-        }
-        
-        guard let imageRep = image.representations.first else {
-            NSLog("Resize failed: Unable to get image representation")
-            return nil
-        }
-        
-        if image.size.width >= CGFloat(imageRep.pixelsWide) {
-            NSLog("Resize skipped: Image is not retina")
-            return nil
-        }
-        
-        guard let bitmapImageRep = NSBitmapImageRep(
-            bitmapDataPlanes: nil,
-            pixelsWide: Int(image.size.width),
-            pixelsHigh: Int(image.size.height),
-            bitsPerSample: 8,
-            samplesPerPixel: 4,
-            hasAlpha: true,
-            isPlanar: false,
-            colorSpaceName: NSColorSpaceName.calibratedRGB,
-            bytesPerRow: 0,
-            bitsPerPixel: 0) else {
-                NSLog("Resize failed: Unable to create bitmap image representation")
-                return nil
-        }
-        
-        NSGraphicsContext.saveGraphicsState()
-        NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: bitmapImageRep)
-        image.draw(in: NSRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-        NSGraphicsContext.restoreGraphicsState()
-        
-        // Use a PNG representation of the resized image
-        guard let resizedRep = bitmapImageRep.representation(using: .png, properties: [:]) else {
-            NSLog("Resize failed: Unable to create PNG representation")
-            return nil
-        }
-        
-        return resizedRep
+        return nil
     }
     
     // MARK: Imgur Upload
@@ -208,27 +131,6 @@ class ImgurClient: NSObject, IMGSessionDelegate {
         
         let imageName = imageURL.lastPathComponent
         
-        // Screenshot specific preferences
-        if isScreenshot {
-            
-            if Preference.disableScreenshotDetection.value
-                || !hasUploadConfirmation(forImageNamed: imageName, imageData: imageData) {
-                return // Skip, do not upload
-            }
-            
-            // Downscale retina image if required
-            if Preference.resizeScreenshots.value,
-                let resizedImageData = downscaleRetinaImageData(imageData) {
-                imageData = resizedImageData
-            }
-            
-            // Move the image to trash if required
-            if Preference.deleteScreenshotsAfterUpload.value {
-                NSWorkspace.shared.recycle([imageURL], completionHandler: nil)
-            }
-            
-        }
-        
         uploadImage(withData: imageData,
                     imageTitle: NSString(string: imageName).deletingPathExtension)
     }
@@ -238,76 +140,20 @@ class ImgurClient: NSObject, IMGSessionDelegate {
     /// - parameter imageTitle: The title of the image (defaults to "Untitled")
     func uploadImage(withData imageData: Data, imageTitle: String = "Untitled") {
         
-        // Clear clipboard if required
-        if Preference.clearClipboard.value {
-            NSPasteboard.general.clearContents()
-        }
-        
-        IMGImageRequest.uploadImage(with: imageData,
-                                    title: imageTitle,
-                                    description: nil,
-                                    linkToAlbumWithID: uploadAlbumID,
-                                    progress: nil,
-                                    success: uploadSuccessHandler,
-                                    failure: uploadFailureHandler)
+//        IMGImageRequest.uploadImage(with: imageData,
+//                                    title: imageTitle,
+//                                    description: nil,
+//                                    linkToAlbumWithID: uploadAlbumID,
+//                                    progress: nil,
+//                                    success: uploadSuccessHandler,
+//                                    failure: uploadFailureHandler)
 
-    }
-    
-    func uploadSuccessHandler(_ image: IMGImage?) {
-        guard let image = image,
-              let urlString = URL(string: "")?.absoluteString else {
-                return
-        }
-                
-        // Copy link to clipboard if required
-        if Preference.copyLinkToClipboard.value,
-            let urlString = URL(string: "")?.absoluteString{
-            NSPasteboard.general.clearContents()
-            NSPasteboard.general
-                .setString(urlString, forType: NSPasteboard.PasteboardType.string)
-        }
-        
-        UserNotificationController.shared.displayNotification(
-            withTitle: "Imgur Upload Succeeded",
-            informativeText: urlString)
     }
     
     func uploadFailureHandler(dataTask: URLSessionDataTask?, error: Error?) {
         handle(error: error, title: "Imgur Upload Failed")
     }
-    
-    // MARK: IMGSessionDelegate
-    
-    func imgurRequestFailed(_ error: Error!) {
-        handle(error: error, title: "Imgur Request Failed")
-    }
-    
-    func imgurSessionRateLimitExceeded() {
-        UserNotificationController.shared
-            .displayNotification(withTitle: "Imgur Rate Limit Exceeded",
-                                 informativeText: "Further Imgur requests may fail")
-    }
-    
-    func imgurSessionNeedsExternalWebview(_ url: URL!, completion: (() -> Void)!) {
-        externalWebViewCompletionHandler = completion
-        NSWorkspace.shared.open(url)
-    }
-    
-    func imgurSessionUserRefreshed(_ user: IMGAccount!) {
-        guard let username = user.username,
-            let refreshToken = IMGSession.sharedInstance().refreshToken else {
-                return
-        }
         
-        if UserDefaults.standard.string(forKey: refreshTokenKey) == nil {
-            UserNotificationController.shared
-                .displayNotification(withTitle: "Authentication Succeeded",
-                                     informativeText: "Signed in as \(username)")
-        }
-        
-        UserDefaults.standard.set(refreshToken, forKey: refreshTokenKey)
-    }
-    
     // MARK: External WebView Handler
     
     func handleExternalWebViewEvent(withResponseURL url: URL) {
@@ -320,7 +166,7 @@ class ImgurClient: NSObject, IMGSessionDelegate {
             let pair = parameter.components(separatedBy: "=")
             
             if pair.count == 2 && pair[0] == "code" {
-                IMGSession.sharedInstance().authenticate(withCode: pair[1])
+//                IMGSession.sharedInstance().authenticate(withCode: pair[1])
                 externalWebViewCompletionHandler?()
                 externalWebViewCompletionHandler = nil
                 return
