@@ -7,6 +7,5 @@ target 'mac2imgur' do
   pod 'EMCLoginItem'
   pod 'LetsMove'#, :path => './LetsMove'
   pod 'ImgurSession', :path => './ImgurSession', :branch => 'update-podspec'
-#, :git => 'https://github.com/mileswd/ImgurSession.git', :branch => 'update-podspec'
 
 end

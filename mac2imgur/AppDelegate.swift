@@ -15,10 +15,6 @@
  */
 
 import Cocoa
-//import Fabric
-//import Crashlytics
-import LetsMove
-//import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -32,12 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: NSApplicationDelegate
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        
-        // Configure Sparkle
-//        SUUpdater.shared().automaticallyDownloadsUpdates = true
-//        SUUpdater.shared().automaticallyChecksForUpdates = true
-//        SUUpdater.shared().checkForUpdatesInBackground()
-        
+                
         // Register initial defaults
         var initialDefaults = ["NSApplicationCrashOnExceptions": true]
         
@@ -46,10 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         UserDefaults.standard.register(defaults: initialDefaults)
-        
-        // Crashlytics integration
-//        Fabric.with([Crashlytics.self])
-        
+                
         // Setup ImgurClient
         ImgurClient.shared.setup()
         
@@ -71,9 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             andSelector: #selector(handleAppleEvent(_:withReplyEvent:)),
             forEventClass: AEEventClass(kInternetEventClass),
             andEventID: AEEventID(kAEGetURL))
-        
-        PFMoveToApplicationsFolderIfNecessary()
-        
+                
         hasFinishedLaunching = true
         
         queuedFileURLs.forEach {
