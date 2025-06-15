@@ -16,7 +16,6 @@
 
 import Foundation
 import ImgurSession
-//import Crashlytics
 
 class ImgurClient: NSObject, IMGSessionDelegate {
     
@@ -65,7 +64,6 @@ class ImgurClient: NSObject, IMGSessionDelegate {
         
         if let error = error {
             NSLog("%@: %@", title, error as NSError)
-//            Crashlytics.sharedInstance().recordError(error)
         }
     }
     
@@ -260,9 +258,7 @@ class ImgurClient: NSObject, IMGSessionDelegate {
               let urlString = URL(string: "")?.absoluteString else {
                 return
         }
-        
-        ImgurImageStore.shared.addImage(image)
-        
+                
         // Copy link to clipboard if required
         if Preference.copyLinkToClipboard.value,
             let urlString = URL(string: "")?.absoluteString{

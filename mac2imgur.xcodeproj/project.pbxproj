@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		021688011D1DEC560093D733 /* ImgurImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021688001D1DEC560093D733 /* ImgurImageStore.swift */; };
 		021EABDB1D2878C200EFE6C8 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021EABDA1D2878C200EFE6C8 /* Preferences.swift */; };
 		022D73A31D2FA46700408B2B /* ImgurClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D73A21D2FA46700408B2B /* ImgurClient.swift */; };
 		022D73AD1D3002C200408B2B /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D73AC1D3002C200408B2B /* StatusItemController.swift */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		021688001D1DEC560093D733 /* ImgurImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurImageStore.swift; sourceTree = "<group>"; };
 		021EABDA1D2878C200EFE6C8 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		022D73A21D2FA46700408B2B /* ImgurClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurClient.swift; sourceTree = "<group>"; };
 		022D73AC1D3002C200408B2B /* StatusItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				022D73A21D2FA46700408B2B /* ImgurClient.swift */,
-				021688001D1DEC560093D733 /* ImgurImageStore.swift */,
 			);
 			name = Imgur;
 			sourceTree = "<group>";
@@ -373,7 +370,6 @@
 				02F440B31D293F1A004AD4E9 /* MenuController.swift in Sources */,
 				022D73A31D2FA46700408B2B /* ImgurClient.swift in Sources */,
 				022D73AD1D3002C200408B2B /* StatusItemController.swift in Sources */,
-				021688011D1DEC560093D733 /* ImgurImageStore.swift in Sources */,
 				02659D281D2728E6005DAB74 /* ScreenshotMonitor.swift in Sources */,
 				0267FE471D1DB6E9003F601D /* AppDelegate.swift in Sources */,
 			);
