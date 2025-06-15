@@ -29,7 +29,7 @@ class MenuController: NSObject, NSMenuDelegate {
     }
     
     /// Creates the menu from scratch.
-    func buildMenu() {
+    @objc func buildMenu() {
         menu.removeAllItems()
         
         // Menu creation logic
@@ -53,7 +53,7 @@ class MenuController: NSObject, NSMenuDelegate {
                           userInfo: nil,
                           repeats: false)
         
-        RunLoop.current.add(timer, forMode: .eventTrackingRunLoopMode)
+        RunLoop.current.add(timer, forMode: RunLoop.Mode.eventTracking)
     }
     
     // MARK: NSMenuDelegate

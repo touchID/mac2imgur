@@ -5,10 +5,8 @@ target 'mac2imgur' do
   platform :osx, '10.9'
 
   pod 'EMCLoginItem'
-  pod 'LetsMove'
-  pod 'ImgurSession', :git => 'https://github.com/mileswd/ImgurSession.git', :branch => 'update-podspec'
-  pod 'Sparkle'
-  pod 'Fabric'
-  pod 'Crashlytics'
+  pod 'LetsMove'#, :path => './LetsMove'
+  pod 'ImgurSession', :path => './ImgurSession', :branch => 'update-podspec'
+#, :git => 'https://github.com/mileswd/ImgurSession.git', :branch => 'update-podspec'
 
 end

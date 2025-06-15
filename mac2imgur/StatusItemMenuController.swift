@@ -17,12 +17,7 @@
 import Cocoa
 
 class StatusItemMenuController: MenuController {
-    
-    let preferencesMenuController = PreferencesMenuController()
-    let uploadsMenuController = UploadsMenuController()
-    let imgurMenuController = ImgurMenuController()
-    let aboutMenuController = AboutMenuController()
-    
+        
     // MARK: MenuController
     
     override func buildMenu() {
@@ -32,19 +27,19 @@ class StatusItemMenuController: MenuController {
                      action: #selector(selectImages),
                      target: self)
         
-        menu.addItem(.separator())
-        menu.addItem(withTitle: uploadsMenuController.menuTitle,
-                     submenu: self.uploadsMenuController.menu)
-        menu.addItem(.separator())
-        menu.addItem(withTitle: preferencesMenuController.menuTitle,
-                     submenu: self.preferencesMenuController.menu)
-        menu.addItem(withTitle: imgurMenuController.menuTitle,
-                     submenu: self.imgurMenuController.menu)
-        menu.addItem(.separator())
-        menu.addItem(withTitle: aboutMenuController.menuTitle,
-                     submenu: self.aboutMenuController.menu)
+//        menu.addItem(.separator())
+//        menu.addItem(withTitle: uploadsMenuController.menuTitle,
+//                     submenu: self.uploadsMenuController.menu)
+//        menu.addItem(.separator())
+//        menu.addItem(withTitle: preferencesMenuController.menuTitle,
+//                     submenu: self.preferencesMenuController.menu)
+//        menu.addItem(withTitle: imgurMenuController.menuTitle,
+//                     submenu: self.imgurMenuController.menu)
+//        menu.addItem(.separator())
+//        menu.addItem(withTitle: aboutMenuController.menuTitle,
+//                     submenu: self.aboutMenuController.menu)
         
-        let appName = NSRunningApplication.current().localizedName ??
+        let appName = NSRunningApplication.current.localizedName ??
             ProcessInfo.processInfo.processName
         
         menu.addItem(withTitle: "Quit \(appName)",
@@ -54,7 +49,7 @@ class StatusItemMenuController: MenuController {
     }
     
     /// Opens a file selection prompt for uploading images
-    func selectImages() {
+    @objc func selectImages() {
         let panel = NSOpenPanel()
         panel.title = "Select Images"
         panel.prompt = "Upload"
@@ -63,7 +58,7 @@ class StatusItemMenuController: MenuController {
         panel.allowedFileTypes = [kUTTypeImage as String]
         
         panel.begin { (result) -> Void in
-            if result == NSFileHandlingPanelOKButton {
+            if result.rawValue == NSFileHandlingPanelOKButton {
                 for url in panel.urls {
                     ImgurClient.shared.uploadImage(withURL: url,
                                                    isScreenshot: false)

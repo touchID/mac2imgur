@@ -25,8 +25,8 @@ class StatusItemController: NSObject, NSWindowDelegate, NSDraggingDestination {
     var currentOperationCount = 0
     
     override init() {
-        statusItem = NSStatusBar.system().statusItem(
-            withLength: NSVariableStatusItemLength)
+        statusItem = NSStatusBar.system.statusItem(
+            withLength: NSStatusItem.variableLength)
         
         statusItemMenuController = StatusItemMenuController()
         
@@ -38,8 +38,13 @@ class StatusItemController: NSObject, NSWindowDelegate, NSDraggingDestination {
         // Enable drag and drop upload if OS X >= 10.10
         if #available(macOS 10.10, *) {
             statusItem.button?.window?.delegate = self
-            statusItem.button?.window?
-                .registerForDraggedTypes([NSFilenamesPboardType, NSTIFFPboardType])
+//            statusItem.button?.window?
+//                .registerForDraggedTypes([NSFilenamesPboardType, NSTIFFPboardType])
+            // 修复：使用新的粘贴板类型
+            statusItem.button?.window?.registerForDraggedTypes([
+                NSPasteboard.PasteboardType.fileURL,
+                NSPasteboard.PasteboardType.tiff
+            ])
         }
         
         NotificationCenter.default.addObserver(forName: .AFNetworkingTaskDidResume,
@@ -68,13 +73,13 @@ class StatusItemController: NSObject, NSWindowDelegate, NSDraggingDestination {
     }
     
     deinit {
-        NSStatusBar.system().removeStatusItem(statusItem)
+        NSStatusBar.system.removeStatusItem(statusItem)
     }
     
     // MARK: NSDraggingDestination
     
     func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
-        if let paths = sender.draggingPasteboard().propertyList(forType: NSFilenamesPboardType) as? [String] {
+        if let paths = sender.draggingPasteboard.propertyList(forType: .fileURL) as? [String] {
             for path in paths {
                 var isDirectory: ObjCBool = false
                 if !FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory)
@@ -87,10 +92,10 @@ class StatusItemController: NSObject, NSWindowDelegate, NSDraggingDestination {
     }
     
     func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        if let data = sender.draggingPasteboard().data(forType: NSTIFFPboardType) {
+        if let data = sender.draggingPasteboard.data(forType: .tiff) {
             ImgurClient.shared.uploadImage(withData: data)
             return true
-        } else if let paths = sender.draggingPasteboard().propertyList(forType: NSFilenamesPboardType) as? [String] {
+        } else if let paths = sender.draggingPasteboard.propertyList(forType: .fileURL) as? [String] {
             for path in paths {
                 ImgurClient.shared.uploadImage(withURL: URL(fileURLWithPath: path),
                                                isScreenshot: false)

@@ -37,13 +37,14 @@ class ScreenshotMonitor {
             return
         }
         
+        // 修正参数类型为非可选，与 FSEventStreamCallback 定义一致
         let streamCallback: FSEventStreamCallback = {
             (streamRef: ConstFSEventStreamRef,
             clientCallBackInfo: UnsafeMutableRawPointer?,
             numEvents: Int,
             eventPaths: UnsafeMutableRawPointer,
-            eventFlags: UnsafePointer<FSEventStreamEventFlags>?,
-            eventIds: UnsafePointer<FSEventStreamEventId>?) in
+            eventFlags: UnsafePointer<FSEventStreamEventFlags>,  // 改为非可选
+            eventIds: UnsafePointer<FSEventStreamEventId>) in     // 改为非可选
             
             guard let eventPaths = Unmanaged<NSArray>
                 .fromOpaque(eventPaths)

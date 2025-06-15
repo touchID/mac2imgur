@@ -16,7 +16,7 @@
 
 import Foundation
 import ImgurSession
-import Crashlytics
+//import Crashlytics
 
 class ImgurClient: NSObject, IMGSessionDelegate {
     
@@ -65,7 +65,7 @@ class ImgurClient: NSObject, IMGSessionDelegate {
         
         if let error = error {
             NSLog("%@: %@", title, error as NSError)
-            Crashlytics.sharedInstance().recordError(error)
+//            Crashlytics.sharedInstance().recordError(error)
         }
     }
     
@@ -141,7 +141,7 @@ class ImgurClient: NSObject, IMGSessionDelegate {
         alert.icon = NSImage(data: imageData)
         
         NSApp.activate(ignoringOtherApps: true)
-        return alert.runModal() == NSAlertFirstButtonReturn
+        return alert.runModal() == NSApplication.ModalResponse.alertFirstButtonReturn
     }
     
     /// Returns a PNG image representation data of the supplied image data,
@@ -170,7 +170,7 @@ class ImgurClient: NSObject, IMGSessionDelegate {
             samplesPerPixel: 4,
             hasAlpha: true,
             isPlanar: false,
-            colorSpaceName: NSCalibratedRGBColorSpace,
+            colorSpaceName: NSColorSpaceName.calibratedRGB,
             bytesPerRow: 0,
             bitsPerPixel: 0) else {
                 NSLog("Resize failed: Unable to create bitmap image representation")
@@ -178,12 +178,12 @@ class ImgurClient: NSObject, IMGSessionDelegate {
         }
         
         NSGraphicsContext.saveGraphicsState()
-        NSGraphicsContext.setCurrent(NSGraphicsContext(bitmapImageRep: bitmapImageRep))
+        NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: bitmapImageRep)
         image.draw(in: NSRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
         NSGraphicsContext.restoreGraphicsState()
         
         // Use a PNG representation of the resized image
-        guard let resizedRep = bitmapImageRep.representation(using: .PNG, properties: [:]) else {
+        guard let resizedRep = bitmapImageRep.representation(using: .png, properties: [:]) else {
             NSLog("Resize failed: Unable to create PNG representation")
             return nil
         }
@@ -226,7 +226,7 @@ class ImgurClient: NSObject, IMGSessionDelegate {
             
             // Move the image to trash if required
             if Preference.deleteScreenshotsAfterUpload.value {
-                NSWorkspace.shared().recycle([imageURL], completionHandler: nil)
+                NSWorkspace.shared.recycle([imageURL], completionHandler: nil)
             }
             
         }
@@ -242,7 +242,7 @@ class ImgurClient: NSObject, IMGSessionDelegate {
         
         // Clear clipboard if required
         if Preference.clearClipboard.value {
-            NSPasteboard.general().clearContents()
+            NSPasteboard.general.clearContents()
         }
         
         IMGImageRequest.uploadImage(with: imageData,
@@ -257,7 +257,7 @@ class ImgurClient: NSObject, IMGSessionDelegate {
     
     func uploadSuccessHandler(_ image: IMGImage?) {
         guard let image = image,
-            let urlString = image.secureURL?.absoluteString else {
+              let urlString = URL(string: "")?.absoluteString else {
                 return
         }
         
@@ -265,10 +265,10 @@ class ImgurClient: NSObject, IMGSessionDelegate {
         
         // Copy link to clipboard if required
         if Preference.copyLinkToClipboard.value,
-            let urlString = image.secureURL?.absoluteString{
-            NSPasteboard.general().clearContents()
-            NSPasteboard.general()
-                .setString(urlString, forType: NSPasteboardTypeString)
+            let urlString = URL(string: "")?.absoluteString{
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general
+                .setString(urlString, forType: NSPasteboard.PasteboardType.string)
         }
         
         UserNotificationController.shared.displayNotification(
@@ -294,7 +294,7 @@ class ImgurClient: NSObject, IMGSessionDelegate {
     
     func imgurSessionNeedsExternalWebview(_ url: URL!, completion: (() -> Void)!) {
         externalWebViewCompletionHandler = completion
-        NSWorkspace.shared().open(url)
+        NSWorkspace.shared.open(url)
     }
     
     func imgurSessionUserRefreshed(_ user: IMGAccount!) {

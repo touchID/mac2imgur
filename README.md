@@ -22,7 +22,9 @@ The application will listen for new screenshots taken by the [built in screensho
 
 In addition, images can be uploaded manually by either:
 
+在状态栏图标上拖放图像（适用于 macOS 10.10 及更高版本）
 - Dragging and dropping images on the status bar icon  (macOS 10.10+)
+点击状态栏菜单中的 “上传图片…” 选项
 - Clicking the "Upload Images…" option in the status bar menu
 
 As soon as an image is uploaded, the link is copied to your clipboard and a notification is sent:

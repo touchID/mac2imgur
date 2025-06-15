@@ -15,10 +15,10 @@
  */
 
 import Cocoa
-import Fabric
-import Crashlytics
+//import Fabric
+//import Crashlytics
 import LetsMove
-import Sparkle
+//import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -34,9 +34,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         
         // Configure Sparkle
-        SUUpdater.shared().automaticallyDownloadsUpdates = true
-        SUUpdater.shared().automaticallyChecksForUpdates = true
-        SUUpdater.shared().checkForUpdatesInBackground()
+//        SUUpdater.shared().automaticallyDownloadsUpdates = true
+//        SUUpdater.shared().automaticallyChecksForUpdates = true
+//        SUUpdater.shared().checkForUpdatesInBackground()
         
         // Register initial defaults
         var initialDefaults = ["NSApplicationCrashOnExceptions": true]
@@ -48,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         UserDefaults.standard.register(defaults: initialDefaults)
         
         // Crashlytics integration
-        Fabric.with([Crashlytics.self])
+//        Fabric.with([Crashlytics.self])
         
         // Setup ImgurClient
         ImgurClient.shared.setup()
@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSUserNotificationCenter.default.delegate = UserNotificationController.shared
         
         // Handle the notification supplied if the application has been launched from the notification center
-        if let userNotification = notification.userInfo?[NSApplicationLaunchUserNotificationKey] as? NSUserNotification {
+        if let userNotification = notification.userInfo?[NSApplication.launchUserNotificationUserInfoKey] as? NSUserNotification {
             UserNotificationController.shared.userNotificationCenter(.default, didActivate: userNotification)
         }
         
@@ -105,7 +105,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // MARK: NSAppleEventManager Event Handler
     
-    func handleAppleEvent(_ event: NSAppleEventDescriptor, withReplyEvent replyEvent: NSAppleEventDescriptor) {
+    @objc func handleAppleEvent(_ event: NSAppleEventDescriptor, withReplyEvent replyEvent: NSAppleEventDescriptor) {
         // Attempt to parse response URL
         guard let urlString = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject))?.stringValue,
             let url = URL(string: urlString) else {

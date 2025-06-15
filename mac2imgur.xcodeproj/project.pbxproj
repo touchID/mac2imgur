@@ -9,36 +9,28 @@
 /* Begin PBXBuildFile section */
 		021688011D1DEC560093D733 /* ImgurImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021688001D1DEC560093D733 /* ImgurImageStore.swift */; };
 		021EABDB1D2878C200EFE6C8 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021EABDA1D2878C200EFE6C8 /* Preferences.swift */; };
-		022D73A11D2EB7F000408B2B /* ImgurAlbumMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D73A01D2EB7F000408B2B /* ImgurAlbumMenuController.swift */; };
 		022D73A31D2FA46700408B2B /* ImgurClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D73A21D2FA46700408B2B /* ImgurClient.swift */; };
 		022D73AD1D3002C200408B2B /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D73AC1D3002C200408B2B /* StatusItemController.swift */; };
 		022D73B21D30416800408B2B /* UserNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D73B11D30416800408B2B /* UserNotificationController.swift */; };
-		0231212D1D31AAC600F14049 /* IMGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231212C1D31AAC600F14049 /* IMGImage.swift */; };
 		02437FA71D51001700CC5E42 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02437FA51D51001700CC5E42 /* MainMenu.xib */; };
 		02659D281D2728E6005DAB74 /* ScreenshotMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02659D271D2728E6005DAB74 /* ScreenshotMonitor.swift */; };
 		02659D2C1D284F24005DAB74 /* StatusItemMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02659D2B1D284F24005DAB74 /* StatusItemMenuController.swift */; };
 		02659D2F1D285986005DAB74 /* NSMenuExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02659D2E1D285986005DAB74 /* NSMenuExtension.swift */; };
 		0267FE471D1DB6E9003F601D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FE461D1DB6E9003F601D /* AppDelegate.swift */; };
 		0267FE4B1D1DB6E9003F601D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0267FE4A1D1DB6E9003F601D /* Assets.xcassets */; };
-		02CCBEFA1D29A74E00F808ED /* AboutMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CCBEF91D29A74E00F808ED /* AboutMenuController.swift */; };
 		02CCBEFD1D29AB5E00F808ED /* Pods-mac2imgur-acknowledgements.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 02CCBEFB1D29AAB800F808ED /* Pods-mac2imgur-acknowledgements.markdown */; };
 		02CCBF001D29AC9000F808ED /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 02CCBEFE1D29AC9000F808ED /* LICENSE */; };
 		02EC81331D3A957300D27B54 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 02EC81321D3A957300D27B54 /* dsa_pub.pem */; };
 		02F440B31D293F1A004AD4E9 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F440B21D293F1A004AD4E9 /* MenuController.swift */; };
-		02F440B61D293F5D004AD4E9 /* UploadsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F440B51D293F5D004AD4E9 /* UploadsMenuController.swift */; };
-		02F440B81D2940ED004AD4E9 /* PreferencesMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F440B71D2940ED004AD4E9 /* PreferencesMenuController.swift */; };
-		02F440BA1D294DAF004AD4E9 /* ImgurMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F440B91D294DAF004AD4E9 /* ImgurMenuController.swift */; };
 		2B4B1EC2B4B0DBDE41B1791C /* Pods_mac2imgur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208AA166C62216E4A19954C9 /* Pods_mac2imgur.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		021688001D1DEC560093D733 /* ImgurImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurImageStore.swift; sourceTree = "<group>"; };
 		021EABDA1D2878C200EFE6C8 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		022D73A01D2EB7F000408B2B /* ImgurAlbumMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurAlbumMenuController.swift; sourceTree = "<group>"; };
 		022D73A21D2FA46700408B2B /* ImgurClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurClient.swift; sourceTree = "<group>"; };
 		022D73AC1D3002C200408B2B /* StatusItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		022D73B11D30416800408B2B /* UserNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationController.swift; sourceTree = "<group>"; };
-		0231212C1D31AAC600F14049 /* IMGImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMGImage.swift; sourceTree = "<group>"; };
 		02437FA61D51001700CC5E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		02659D271D2728E6005DAB74 /* ScreenshotMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotMonitor.swift; sourceTree = "<group>"; };
 		02659D2B1D284F24005DAB74 /* StatusItemMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemMenuController.swift; sourceTree = "<group>"; };
@@ -49,15 +41,11 @@
 		0267FE4F1D1DB6E9003F601D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02696D0F1D4AB4CE00C7F90E /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		027A2CB81D317BB100FAEF8D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		02CCBEF91D29A74E00F808ED /* AboutMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMenuController.swift; sourceTree = "<group>"; };
 		02CCBEFB1D29AAB800F808ED /* Pods-mac2imgur-acknowledgements.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "Pods-mac2imgur-acknowledgements.markdown"; path = "../Pods/Target Support Files/Pods-mac2imgur/Pods-mac2imgur-acknowledgements.markdown"; sourceTree = "<group>"; };
 		02CCBEFE1D29AC9000F808ED /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		02CCBEFF1D29AC9000F808ED /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		02EC81321D3A957300D27B54 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		02F440B21D293F1A004AD4E9 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
-		02F440B51D293F5D004AD4E9 /* UploadsMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadsMenuController.swift; sourceTree = "<group>"; };
-		02F440B71D2940ED004AD4E9 /* PreferencesMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesMenuController.swift; sourceTree = "<group>"; };
-		02F440B91D294DAF004AD4E9 /* ImgurMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurMenuController.swift; sourceTree = "<group>"; };
 		208AA166C62216E4A19954C9 /* Pods_mac2imgur.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mac2imgur.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FC0D03566102016C7E13576 /* Pods-mac2imgur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mac2imgur.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mac2imgur/Pods-mac2imgur.debug.xcconfig"; sourceTree = "<group>"; };
 		A050AE7BB2CE2869B438B41D /* Pods-mac2imgur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mac2imgur.release.xcconfig"; path = "Pods/Target Support Files/Pods-mac2imgur/Pods-mac2imgur.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				02659D2E1D285986005DAB74 /* NSMenuExtension.swift */,
-				0231212C1D31AAC600F14049 /* IMGImage.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -118,12 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				02F440B21D293F1A004AD4E9 /* MenuController.swift */,
-				02CCBEF91D29A74E00F808ED /* AboutMenuController.swift */,
-				022D73A01D2EB7F000408B2B /* ImgurAlbumMenuController.swift */,
-				02F440B91D294DAF004AD4E9 /* ImgurMenuController.swift */,
-				02F440B71D2940ED004AD4E9 /* PreferencesMenuController.swift */,
 				02659D2B1D284F24005DAB74 /* StatusItemMenuController.swift */,
-				02F440B51D293F5D004AD4E9 /* UploadsMenuController.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -243,6 +225,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -353,21 +336,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				02659D2C1D284F24005DAB74 /* StatusItemMenuController.swift in Sources */,
-				02CCBEFA1D29A74E00F808ED /* AboutMenuController.swift in Sources */,
 				022D73B21D30416800408B2B /* UserNotificationController.swift in Sources */,
-				02F440BA1D294DAF004AD4E9 /* ImgurMenuController.swift in Sources */,
 				021EABDB1D2878C200EFE6C8 /* Preferences.swift in Sources */,
 				02659D2F1D285986005DAB74 /* NSMenuExtension.swift in Sources */,
 				02F440B31D293F1A004AD4E9 /* MenuController.swift in Sources */,
 				022D73A31D2FA46700408B2B /* ImgurClient.swift in Sources */,
-				02F440B61D293F5D004AD4E9 /* UploadsMenuController.swift in Sources */,
-				022D73A11D2EB7F000408B2B /* ImgurAlbumMenuController.swift in Sources */,
 				022D73AD1D3002C200408B2B /* StatusItemController.swift in Sources */,
 				021688011D1DEC560093D733 /* ImgurImageStore.swift in Sources */,
 				02659D281D2728E6005DAB74 /* ScreenshotMonitor.swift in Sources */,
 				0267FE471D1DB6E9003F601D /* AppDelegate.swift in Sources */,
-				02F440B81D2940ED004AD4E9 /* PreferencesMenuController.swift in Sources */,
-				0231212D1D31AAC600F14049 /* IMGImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,14 +454,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = mac2imgur/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mileswd.mac2imgur;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -494,15 +472,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = mac2imgur/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mileswd.mac2imgur;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
