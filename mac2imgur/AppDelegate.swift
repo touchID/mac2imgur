@@ -16,7 +16,7 @@
 
 import Cocoa
 
-@NSApplicationMain
+@main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItemController = StatusItemController()
@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // MARK: NSApplicationDelegate
     
-    func applicationDidFinishLaunching(_ notification: Notification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
                         
         // Setup ImgurClient
         ImgurClient.shared.setup()
@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSUserNotificationCenter.default.delegate = UserNotificationController.shared
         
         // Handle the notification supplied if the application has been launched from the notification center
-        if let userNotification = notification.userInfo?[NSApplication.launchUserNotificationUserInfoKey] as? NSUserNotification {
+        if let userNotification = aNotification.userInfo?[NSApplication.launchUserNotificationUserInfoKey] as? NSUserNotification {
             UserNotificationController.shared.userNotificationCenter(.default, didActivate: userNotification)
         }
         
