@@ -15,7 +15,6 @@
  */
 
 import Cocoa
-import AFNetworking
 
 class StatusItemController: NSObject, NSWindowDelegate, NSDraggingDestination {
     
@@ -38,8 +37,6 @@ class StatusItemController: NSObject, NSWindowDelegate, NSDraggingDestination {
         // Enable drag and drop upload if OS X >= 10.10
         if #available(macOS 10.10, *) {
             statusItem.button?.window?.delegate = self
-//            statusItem.button?.window?
-//                .registerForDraggedTypes([NSFilenamesPboardType, NSTIFFPboardType])
             // 修复：使用新的粘贴板类型
             statusItem.button?.window?.registerForDraggedTypes([
                 NSPasteboard.PasteboardType.fileURL,
@@ -47,23 +44,18 @@ class StatusItemController: NSObject, NSWindowDelegate, NSDraggingDestination {
             ])
         }
         
-        NotificationCenter.default.addObserver(forName: .AFNetworkingTaskDidResume,
-                                               object: nil,
-                                               queue: nil,
-                                               using: notificationHandler)
-        
-        NotificationCenter.default.addObserver(forName: .AFNetworkingTaskDidComplete,
-                                               object: nil,
-                                               queue: nil,
-                                               using: notificationHandler)
+//        NotificationCenter.default.addObserver(forName: .AFNetworkingTaskDidResume,
+//                                               object: nil,
+//                                               queue: nil,
+//                                               using: notificationHandler)
     }
     
     func notificationHandler(notification: Notification) {
-        if notification.name == .AFNetworkingTaskDidResume {
-            currentOperationCount += 1
-        } else if notification.name == .AFNetworkingTaskDidComplete {
-            currentOperationCount -= 1
-        }
+//        if notification.name == .AFNetworkingTaskDidResume {
+//            currentOperationCount += 1
+//        } else if notification.name == .AFNetworkingTaskDidComplete {
+//            currentOperationCount -= 1
+//        }
         updateStatusItemImage()
     }
     
